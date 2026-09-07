@@ -1,0 +1,32 @@
+# Render Blueprint: deploys this app as a single web service from the
+# Dockerfile in this repo. Render reads this file automatically when you
+# create a "Blueprint" pointed at your repo -- see README.md's
+# "Deploying to the web" section for the full step-by-step.
+#
+# DATABASE_URL and SECRET_KEY are marked `sync: false`, which makes Render
+# prompt you to paste them in during setup instead of storing a value here
+# (a free Postgres connection string from neon.com is recommended -- see the
+# README -- since Render's own free Postgres tier auto-deletes after 30 days).
+services:
+  - type: web
+    name: transport-system-mvp
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SECRET_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USERNAME
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: SMTP_FROM_EMAIL
+        sync: false
+      - key: SMTP_USE_TLS
+        value: "true"

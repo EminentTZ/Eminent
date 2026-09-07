@@ -1,0 +1,10 @@
+.venv
+.venv_check
+__pycache__
+*.pyc
+.tmp
+app/uploads/*
+!app/uploads/.gitkeep
+.git
+.env
+*.db

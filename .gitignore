@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.venv_check/
+venv/
+env/
+
+# Local dev database / secrets
+*.db
+.env
+
+# Uploaded documents (driver licenses, vehicle docs, POD photos) -- runtime data,
+# never source-controlled. Keep the folder itself with .gitkeep.
+app/uploads/*
+!app/uploads/.gitkeep
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
